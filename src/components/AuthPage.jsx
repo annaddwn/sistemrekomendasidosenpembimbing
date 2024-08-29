@@ -3,7 +3,7 @@ import Sidebar from './Sidebar';
 import AuthForm from './AuthForm';
 
 const AuthPage = () => {
-    const [isRegister, setIsRegister] = useState(true); // true for register, false for login
+    const [isRegister, setIsRegister] = useState(true); 
 
     const toggleForm = () => {
         setIsRegister(!isRegister);
