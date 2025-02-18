@@ -72,14 +72,14 @@ const Mahasiswa = () => {
                 <h2 className="text-xl font-bold bg-indigo-200 text-indigo-800 p-4 border-b">
                     {isSecondTable ? 'Hasil Rekomendasi 2' : 'Hasil Rekomendasi 1'}
                 </h2>
-                <table className="w-full border-collapse">
+                <table className="w-full border-collapse table-auto">
                     <thead>
                         <tr className="bg-indigo-50 text-indigo-800">
-                            {!isSecondTable && <th className="p-3 text-left border-b">Nama</th>}
-                            {!isSecondTable && <th className="p-3 text-left border-b">Title</th>}
-                            {!isSecondTable && <th className="p-3 text-left border-b">Mata Kuliah</th>}
-                            {isSecondTable && <th className="p-3 text-left border-b">Nama</th>}
-                            {isSecondTable && <th className="p-3 text-left border-b">Keyword</th>}
+                            {!isSecondTable && <th className="p-3 text-left border-b min-w-[150px]">Nama</th>}
+                            {!isSecondTable && <th className="p-3 text-left border-b min-w-[150px]">Title</th>}
+                            {!isSecondTable && <th className="p-3 text-left border-b min-w-[150px]">Mata Kuliah</th>}
+                            {isSecondTable && <th className="p-3 text-left border-b min-w-[150px]">Nama</th>}
+                            {isSecondTable && <th className="p-3 text-left border-b min-w-[150px]">Keyword</th>}
                         </tr>
                     </thead>
                     <tbody>
