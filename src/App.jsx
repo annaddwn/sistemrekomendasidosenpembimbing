@@ -1,18 +1,19 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import AuthPage from './components/AuthPage';
-import ProfilePage from './components/ProfilePage'; 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './components/Login';
+import Mahasiswa from './components/Mahasiswa';
+import Dosen from './components/Dosen';
 
-
-function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<AuthPage />} />
-        <Route path="/home" element={<ProfilePage />} />
-      </Routes>
-    </Router>
-  );
-}
+const App = () => {
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<Login />} />
+                <Route path="/mahasiswa" element={<Mahasiswa />} />
+                <Route path="/dosen" element={<Dosen />} />
+            </Routes>
+        </Router>
+    );
+};
 
 export default App;
