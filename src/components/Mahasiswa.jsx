@@ -72,83 +72,87 @@ const Mahasiswa = () => {
                 <h2 className="text-xl font-bold bg-indigo-200 text-indigo-800 p-4 border-b">
                     {isSecondTable ? 'Hasil Rekomendasi 2' : 'Hasil Rekomendasi 1'}
                 </h2>
-                <table className="w-full border-collapse table-auto">
-                    <thead>
-                        <tr className="bg-indigo-50 text-indigo-800">
-                            {!isSecondTable && <th className="p-3 text-left border-b min-w-[150px]">Nama</th>}
-                            {!isSecondTable && <th className="p-3 text-left border-b min-w-[150px]">Title</th>}
-                            {!isSecondTable && <th className="p-3 text-left border-b min-w-[150px]">Mata Kuliah</th>}
-                            {isSecondTable && <th className="p-3 text-left border-b min-w-[150px]">Nama</th>}
-                            {isSecondTable && <th className="p-3 text-left border-b min-w-[150px]">Keyword</th>}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {data.map((row, index) => {
-                            const titles = !isSecondTable ? row.Title.split(',').map((title) => title.trim()) : [];
-                            const silabus = !isSecondTable ? row.Silabus_Mata_Kuliah.split(',').map((s) => s.trim()) : [];
-                            const rekDosen = isSecondTable ? row.RekDosen.split(';').map((dosen) => dosen.trim()) : [];
-                            const keywordSil = isSecondTable ? row.keyword_sil.split(',').map((s) => s.trim()) : [];
+                
+                {/* Menambahkan overflow-x untuk tabel agar tidak terpotong di layar kecil */}
+                <div className="overflow-x-auto">
+                    <table className="w-full border-collapse table-auto">
+                        <thead>
+                            <tr className="bg-indigo-50 text-indigo-800">
+                                {!isSecondTable && <th className="p-3 text-left border-b min-w-[150px]">Nama</th>}
+                                {!isSecondTable && <th className="p-3 text-left border-b min-w-[200px]">Title</th>}
+                                {!isSecondTable && <th className="p-3 text-left border-b min-w-[250px]">Mata Kuliah</th>}
+                                {isSecondTable && <th className="p-3 text-left border-b min-w-[150px]">Nama</th>}
+                                {isSecondTable && <th className="p-3 text-left border-b min-w-[200px]">Keyword</th>}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {data.map((row, index) => {
+                                const titles = !isSecondTable ? row.Title.split(',').map((title) => title.trim()) : [];
+                                const silabus = !isSecondTable ? row.Silabus_Mata_Kuliah.split(',').map((s) => s.trim()) : [];
+                                const rekDosen = isSecondTable ? row.RekDosen.split(';').map((dosen) => dosen.trim()) : [];
+                                const keywordSil = isSecondTable ? row.keyword_sil.split(',').map((s) => s.trim()) : [];
 
-                            return (
-                                <tr key={index} className="border-b">
-                                    {!isSecondTable && <td className="p-3">{row.Nama}</td>}
-                                    {!isSecondTable && (
-                                        <td className="p-3">
-                                            <table className="w-full border-collapse">
-                                                <tbody>
-                                                    {titles.map((title, idx) => (
-                                                        <tr key={idx} className={idx % 2 === 0 ? "bg-gray-100" : "bg-white"}>
-                                                            <td className="p-2">{title}</td>
-                                                        </tr>
-                                                    ))}
-                                                </tbody>
-                                            </table>
-                                        </td>
-                                    )}
-                                    {!isSecondTable && (
-                                        <td className="p-3">
-                                            <table className="w-full border-collapse">
-                                                <tbody>
-                                                    {silabus.map((s, idx) => (
-                                                        <tr key={idx} className={idx % 2 === 0 ? "bg-gray-100" : "bg-white"}>
-                                                            <td className="p-2">{s}</td>
-                                                        </tr>
-                                                    ))}
-                                                </tbody>
-                                            </table>
-                                        </td>
-                                    )}
-                                    {isSecondTable && (
-                                        <td className="p-3">
-                                            <table className="w-full border-collapse">
-                                                <tbody>
-                                                    {rekDosen.map((dosen, idx) => (
-                                                        <tr key={idx} className={idx % 2 === 0 ? "bg-gray-100" : "bg-white"}>
-                                                            <td className="p-2">{dosen}</td>
-                                                        </tr>
-                                                    ))}
-                                                </tbody>
-                                            </table>
-                                        </td>
-                                    )}
-                                    {isSecondTable && (
-                                        <td className="p-3">
-                                            <table className="w-full border-collapse">
-                                                <tbody>
-                                                    {keywordSil.map((s, idx) => (
-                                                        <tr key={idx} className={idx % 2 === 0 ? "bg-gray-100" : "bg-white"}>
-                                                            <td className="p-2">{s}</td>
-                                                        </tr>
-                                                    ))}
-                                                </tbody>
-                                            </table>
-                                        </td>
-                                    )}
-                                </tr>
-                            );
-                        })}
-                    </tbody>
-                </table>
+                                return (
+                                    <tr key={index} className="border-b">
+                                        {!isSecondTable && <td className="p-3">{row.Nama}</td>}
+                                        {!isSecondTable && (
+                                            <td className="p-3">
+                                                <table className="w-full border-collapse">
+                                                    <tbody>
+                                                        {titles.map((title, idx) => (
+                                                            <tr key={idx} className={idx % 2 === 0 ? "bg-gray-100" : "bg-white"}>
+                                                                <td className="p-2 whitespace-normal break-words">{title}</td>
+                                                            </tr>
+                                                        ))}
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        )}
+                                        {!isSecondTable && (
+                                            <td className="p-3">
+                                                <table className="w-full border-collapse">
+                                                    <tbody>
+                                                        {silabus.map((s, idx) => (
+                                                            <tr key={idx} className={idx % 2 === 0 ? "bg-gray-100" : "bg-white"}>
+                                                                <td className="p-2 whitespace-normal break-words">{s}</td>
+                                                            </tr>
+                                                        ))}
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        )}
+                                        {isSecondTable && (
+                                            <td className="p-3">
+                                                <table className="w-full border-collapse">
+                                                    <tbody>
+                                                        {rekDosen.map((dosen, idx) => (
+                                                            <tr key={idx} className={idx % 2 === 0 ? "bg-gray-100" : "bg-white"}>
+                                                                <td className="p-2">{dosen}</td>
+                                                            </tr>
+                                                        ))}
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        )}
+                                        {isSecondTable && (
+                                            <td className="p-3">
+                                                <table className="w-full border-collapse">
+                                                    <tbody>
+                                                        {keywordSil.map((s, idx) => (
+                                                            <tr key={idx} className={idx % 2 === 0 ? "bg-gray-100" : "bg-white"}>
+                                                                <td className="p-2">{s}</td>
+                                                            </tr>
+                                                        ))}
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        )}
+                                    </tr>
+                                );
+                            })}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         );
     };
