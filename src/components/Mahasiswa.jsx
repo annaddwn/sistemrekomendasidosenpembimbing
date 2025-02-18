@@ -33,12 +33,12 @@ const Mahasiswa = () => {
         }
 
         try {
-            const response1 = await fetch('/data.xlsx');
+            const response1 = await fetch('/sistemrekomendasidosen/data.xlsx');
             const fileBlob1 = await response1.blob();
             const excelData1 = await readExcel(fileBlob1);
             const filteredData1 = excelData1.filter((row) => row.Nim === trimmedNim);
 
-            const response2 = await fetch('/data2.xlsx');
+            const response2 = await fetch('/sistemrekomendasidosen/data2.xlsx');
             const fileBlob2 = await response2.blob();
             const excelData2 = await readExcel(fileBlob2);
             const filteredData2 = excelData2.filter((row) => row.Nim === trimmedNim);

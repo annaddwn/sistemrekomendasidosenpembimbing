@@ -6,7 +6,7 @@ import Dosen from './components/Dosen';
 
 const App = () => {
     return (
-        <Router>
+        <Router basename="/sistemrekomendasidosen">
             <Routes>
                 <Route path="/" element={<Login />} />
                 <Route path="/mahasiswa" element={<Mahasiswa />} />
