@@ -66,14 +66,26 @@ const Mahasiswa = () => {
 
     const renderTable = (data, isSecondTable = false) => {
         if (data.length === 0) return null;
-
+    
         return (
             <div className="w-full md:w-1/2 bg-white shadow-lg rounded-lg overflow-hidden">
                 <h2 className="text-xl font-bold bg-indigo-200 text-indigo-800 p-4 border-b">
                     {isSecondTable ? 'Hasil Rekomendasi 2' : 'Hasil Rekomendasi 1'}
                 </h2>
-                
-                {/* Menambahkan overflow-x untuk tabel agar tidak terpotong di layar kecil */}
+    
+                <p className="p-4 text-black text-sm text-justify">
+                    {isSecondTable ? (
+                        <>
+                            Hasil rekomendasi ini menunjukkan daftar dosen dan daftar keyword yang direkomendasikan berdasarkan <strong>Mencocokkan Kata-kata Penting dari Silabus Mata Kuliah</strong> dengan <strong> Kata-kata Penting dari Judul dan Abstrak Tugas Akhir Alumni.</strong> Proses rekomendasi ini dilakukan dengan mempertimbangkan mata kuliah yang memiliki <strong>Nilai A</strong> dan kemiripan <strong>Nilai</strong> mahasiswa dengan alumni.
+                        </>
+                    ) : (
+                        <>
+                            Hasil rekomendasi ini menunjukkan daftar dosen dan daftar tugas akhir alumni yang direkomendasikan berdasarkan <strong>Kesamaan Silabus Mata Kuliah</strong> dengan <strong>Judul</strong> dan <strong>Abstrak Tugas Akhir Alumni.</strong> Proses rekomendasi ini dilakukan dengan mempertimbangkan mata kuliah yang memiliki <strong>Nilai A</strong> dan kemiripan <strong>Nilai</strong> dan <strong>Talent Mapping</strong> mahasiswa dengan alumni.
+                        </>
+                    )}
+                </p>
+
+    
                 <div className="overflow-x-auto">
                     <table className="w-full border-collapse table-auto">
                         <thead>
@@ -91,7 +103,7 @@ const Mahasiswa = () => {
                                 const silabus = !isSecondTable ? row.Silabus_Mata_Kuliah.split(',').map((s) => s.trim()) : [];
                                 const rekDosen = isSecondTable ? row.RekDosen.split(';').map((dosen) => dosen.trim()) : [];
                                 const keywordSil = isSecondTable ? row.keyword_sil.split(',').map((s) => s.trim()) : [];
-
+    
                                 return (
                                     <tr key={index} className="border-b">
                                         {!isSecondTable && <td className="p-3">{row.Nama}</td>}
@@ -156,6 +168,7 @@ const Mahasiswa = () => {
             </div>
         );
     };
+    
 
     return (
         <div className="flex flex-col justify-center items-center min-h-screen bg-blue-100 p-6 font-inter">

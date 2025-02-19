@@ -23,6 +23,7 @@ const Login = () => {
                     {/* Menu Pilihan */}
                     <div className="flex-1 ml-4">
                         <div className="flex flex-col space-y-4">
+                            <strong>Silahkan Login Sebagai:</strong>
                             <button
                                 onClick={() => navigate('/mahasiswa')}
                                 className="bg-blue-100 text-indigo-700 py-2 px-4 rounded-lg font-semibold hover:bg-yellow-400 transition duration-300"
