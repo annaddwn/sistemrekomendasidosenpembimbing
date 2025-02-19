@@ -6,7 +6,6 @@ const Mahasiswa = () => {
     const [data1, setData1] = useState([]);
     const [data2, setData2] = useState([]);
     const [error, setError] = useState('');
-    const [showAllDosen, setShowAllDosen] = useState(false); // State untuk mengontrol tampilan "Show More"
 
     const readExcel = async (file) => {
         return new Promise((resolve, reject) => {
@@ -67,13 +66,13 @@ const Mahasiswa = () => {
 
     const renderTable = (data, isSecondTable = false) => {
         if (data.length === 0) return null;
-
+    
         return (
             <div className="w-full md:w-1/2 bg-white shadow-lg rounded-lg overflow-hidden">
                 <h2 className="text-xl font-bold bg-indigo-200 text-indigo-800 p-4 border-b">
                     {isSecondTable ? 'Hasil Rekomendasi 2' : 'Hasil Rekomendasi 1'}
                 </h2>
-
+    
                 <p className="p-4 text-black text-sm text-justify">
                     {isSecondTable ? (
                         <>
@@ -86,6 +85,7 @@ const Mahasiswa = () => {
                     )}
                 </p>
 
+    
                 <div className="overflow-x-auto">
                     <table className="w-full border-collapse table-auto">
                         <thead>
@@ -103,7 +103,7 @@ const Mahasiswa = () => {
                                 const silabus = !isSecondTable ? row.Silabus_Mata_Kuliah.split(',').map((s) => s.trim()) : [];
                                 const rekDosen = isSecondTable ? row.RekDosen.split(';').map((dosen) => dosen.trim()) : [];
                                 const keywordSil = isSecondTable ? row.keyword_sil.split(',').map((s) => s.trim()) : [];
-
+    
                                 return (
                                     <tr key={index} className="border-b">
                                         {!isSecondTable && <td className="p-3">{row.Nama}</td>}
@@ -111,23 +111,11 @@ const Mahasiswa = () => {
                                             <td className="p-3">
                                                 <table className="w-full border-collapse">
                                                     <tbody>
-                                                        {titles.slice(0, showAllDosen ? titles.length : 1).map((title, idx) => (
+                                                        {titles.map((title, idx) => (
                                                             <tr key={idx} className={idx % 2 === 0 ? "bg-gray-100" : "bg-white"}>
                                                                 <td className="p-2 whitespace-normal break-words">{title}</td>
                                                             </tr>
                                                         ))}
-                                                        {titles.length > 1 && !showAllDosen && (
-                                                            <tr>
-                                                                <td colSpan="1" className="p-2">
-                                                                    <button
-                                                                        onClick={() => setShowAllDosen(true)}
-                                                                        className="text-indigo-600 hover:text-indigo-800"
-                                                                    >
-                                                                        Show More...
-                                                                    </button>
-                                                                </td>
-                                                            </tr>
-                                                        )}
                                                     </tbody>
                                                 </table>
                                             </td>
@@ -180,16 +168,13 @@ const Mahasiswa = () => {
             </div>
         );
     };
+    
 
     return (
         <div className="flex flex-col justify-center items-center min-h-screen bg-blue-100 p-6 font-inter">
             <h1 className="text-3xl font-bold text-slate-800 mb-6">Rekomendasi Dosen dan Tugas Akhir Alumni</h1>
 
-        <div className="flex flex-col items-start mb-6 w-full max-w-md">
-            <h1 className="mb-2 text-lg font-semibold">Silahkan Masukkan NIM: G640xxxxxxx</h1>
-            
-          
-            <div className="flex w-full">
+            <div className="flex items-center mb-6 w-full max-w-md">
                 <input
                     type="text"
                     placeholder="Masukkan NIM"
@@ -205,8 +190,6 @@ const Mahasiswa = () => {
                     Search
                 </button>
             </div>
-        </div>
-
 
             {error && <p className="text-red-400 font-semibold mb-4">{error}</p>}
 
