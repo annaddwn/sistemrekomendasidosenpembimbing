@@ -77,12 +77,12 @@ const Mahasiswa = () => {
                 <p className="p-4 text-black text-sm text-justify">
                     {isSecondTable ? (
                         <>
-                            Hasil rekomendasi ini menunjukkan daftar dosen dan daftar keyword yang direkomendasikan berdasarkan <strong>Mencocokkan Kata-kata Penting dari Silabus Mata Kuliah</strong> dengan <strong> Kata-kata Penting dari Judul dan Abstrak Tugas Akhir Alumni.</strong> Proses rekomendasi ini dilakukan dengan mempertimbangkan mata kuliah yang memiliki <strong>Nilai A</strong> dan kemiripan <strong>Nilai</strong> mahasiswa dengan alumni.
+                            Hasil rekomendasi ini menunjukkan daftar dosen dan daftar keyword yang direkomendasikan berdasarkan <strong>Mencocokkan Kata-kata Penting dari Silabus Mata Kuliah</strong> dengan <strong> Kata-kata Penting dari Judul dan Abstrak Tugas Akhir Alumni.</strong> Proses rekomendasi ini dilakukan dengan mempertimbangkan mata kuliah yang memiliki <strong>Nilai A</strong> dan kemiripan <strong>Riwayat Akademik</strong> mahasiswa dengan alumni.
                             <strong> *Hasil teratas adalah Dosen dan Keyword yang paling direkomendasikan</strong>
                         </>
                     ) : (
                         <>
-                            Hasil rekomendasi ini menunjukkan daftar dosen dan daftar tugas akhir alumni yang direkomendasikan berdasarkan <strong>Kesamaan Silabus Mata Kuliah</strong> dengan <strong>Judul</strong> dan <strong>Abstrak Tugas Akhir Alumni.</strong> Proses rekomendasi ini dilakukan dengan mempertimbangkan mata kuliah yang memiliki <strong>Nilai A</strong> dan kemiripan <strong>Nilai</strong> dan <strong>Talent Mapping</strong> mahasiswa dengan alumni.
+                            Hasil rekomendasi ini menunjukkan daftar dosen dan daftar tugas akhir alumni yang direkomendasikan berdasarkan <strong>Kesamaan Silabus Mata Kuliah</strong> dengan <strong>Judul</strong> dan <strong>Abstrak Tugas Akhir Alumni.</strong> Proses rekomendasi ini dilakukan dengan mempertimbangkan mata kuliah yang memiliki <strong>Nilai A</strong> dan kemiripan <strong>Riwayat Akademik</strong> dan <strong>Talent Mapping</strong> mahasiswa dengan alumni.
                         <strong> *Hasil teratas adalah Dosen dan Tugas Akhir yang paling direkomendasikan</strong>
                         </>
                     )}
