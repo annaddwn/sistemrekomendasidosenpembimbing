@@ -1,19 +1,16 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Login from './components/Login';
-import Mahasiswa from './components/Mahasiswa';
-import Dosen from './components/Dosen';
+import HomePage from './pages/HomePage';
+import Login from './pages/Login';
 
-const App = () => {
+function App() {
     return (
-        <Router basename="/sistemrekomendasidosen">
+        <Router>
             <Routes>
                 <Route path="/" element={<Login />} />
-                <Route path="/mahasiswa" element={<Mahasiswa />} />
-                <Route path="/dosen" element={<Dosen />} />
+                <Route path="/HomePage" element={<HomePage />} />
             </Routes>
         </Router>
     );
-};
+}
 
 export default App;
