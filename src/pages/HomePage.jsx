@@ -14,12 +14,12 @@ const HomePage = () => {
   useEffect(() => {
     const loadExcelData = async () => {
       try {
-        const dosenResponse = await fetch('/hasil_mhs.xlsx');
+        const dosenResponse = await fetch('/sistemrekomendasidosenpembimbing/hasil_mhs.xlsx');
         const dosenArrayBuffer = await dosenResponse.arrayBuffer();
         const dosenWorkbook = XLSX.read(new Uint8Array(dosenArrayBuffer), { type: 'array' });
         const dosenJson = XLSX.utils.sheet_to_json(dosenWorkbook.Sheets[dosenWorkbook.SheetNames[0]]);
         
-        const thesisResponse = await fetch('/hasil_rekomendasi.xlsx');
+        const thesisResponse = await fetch('/sistemrekomendasidosenpembimbing/hasil_rekomendasi.xlsx');
         const thesisArrayBuffer = await thesisResponse.arrayBuffer();
         const thesisWorkbook = XLSX.read(new Uint8Array(thesisArrayBuffer), { type: 'array' });
         const thesisJson = XLSX.utils.sheet_to_json(thesisWorkbook.Sheets[thesisWorkbook.SheetNames[0]]);
