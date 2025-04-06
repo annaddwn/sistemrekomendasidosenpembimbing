@@ -3,7 +3,7 @@ import RecommendationCard from './RecommendationCard';
 
 const categoryDescriptions = {
   SIS: {
-    title: "Skyline Inverse Skyline View (SIS)",
+    title: "Skyband Inverse Skyband View (SIS)",
     description: [
       "Syarat Hasil SIS:",
       "1. Mahasiswa harus termasuk dalam skyband/terbaik berdasarkan prestasi akademik",
@@ -15,7 +15,7 @@ const categoryDescriptions = {
     ].join('\n')
   },
   SMV: {
-    title: "Skyline Mutual View (SMV)",
+    title: "Skyband Mutual View (SMV)",
     description: [
       "Syarat Hasil SMV:",
       "1. Mahasiswa tertarik pada dosen tersebut",
@@ -24,7 +24,7 @@ const categoryDescriptions = {
     ].join('\n')
   },
   Rsky: {
-    title: "Kueri Reciprocal Skyline (Rsky)",
+    title: "Kueri Reciprocal Skyband (Rsky)",
     description: [
       "Syarat Hasil Rsky:",
       "1. Mahasiswa tertarik pada dosen tersebut",
