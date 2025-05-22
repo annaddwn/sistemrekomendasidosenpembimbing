@@ -1,14 +1,14 @@
-import { useState } from 'react'
+import { useState } from 'react';
 
 const SearchForm = ({ onSearch }) => {
-  const [nim, setNim] = useState('')
+  const [nim, setNim] = useState('');
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     if (nim.trim()) {
-      onSearch(nim)
+      onSearch(nim);
     }
-  }
+  };
 
   return (
     <form onSubmit={handleSubmit} className="max-w-md mx-auto mt-8">
@@ -28,7 +28,7 @@ const SearchForm = ({ onSearch }) => {
         </button>
       </div>
     </form>
-  )
-}
+  );
+};
 
-export default SearchForm
+export default SearchForm;

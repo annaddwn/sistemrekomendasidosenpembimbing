@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import RecommendationCard from './RecommendationCard';
 
+
 const categoryDescriptions = {
   SIS: {
     title: "Skyband Inverse Skyband View (SIS)",

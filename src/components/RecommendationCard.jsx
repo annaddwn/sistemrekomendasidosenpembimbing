@@ -1,33 +1,15 @@
 import React from 'react';
 
 const RecommendationCard = ({ type, name, repo, title, lecturer, relatedCourses }) => {
-  const isEmptyLecturer = type === 'lecturer' && (!name || name === '');
+  // Jika tipe lecturer dan name kosong, return null
+  if (type === 'lecturer' && (!name || name.trim() === '')) {
+    return null;
+  }
 
-  // Komponen untuk Empty State
-  const EmptyState = () => (
-    <div className="w-full h-full flex flex-col items-center justify-center text-center">
-      <svg 
-        className="w-14 h-14 text-gray-400 mb-4" 
-        fill="none" 
-        stroke="currentColor" 
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-      >
-        <path 
-          strokeLinecap="round" 
-          strokeLinejoin="round" 
-          strokeWidth={1.5} 
-          d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" 
-        />
-      </svg>
-      <h3 className="text-lg font-medium text-gray-700 mb-2">
-        Tidak ada data dosen
-      </h3>
-      <p className="text-sm text-gray-500 max-w-xs">
-        Belum tersedia rekomendasi dosen untuk kategori ini
-      </p>
-    </div>
-  );
+  // Jika tipe thesis dan title kosong, return null
+  if (type !== 'lecturer' && (!title || title.trim() === '')) {
+    return null;
+  }
 
   // Komponen untuk Lecturer Card
   const LecturerCard = () => (
@@ -82,12 +64,8 @@ const RecommendationCard = ({ type, name, repo, title, lecturer, relatedCourses 
   );
 
   return (
-    <div className={`
-      bg-white rounded-lg shadow-md border border-gray-200
-      transition-all duration-200 overflow-hidden flex
-      ${isEmptyLecturer ? 'justify-center items-center h-64 w-full' : 'flex-col h-full'}
-    `}>
-      {isEmptyLecturer ? <EmptyState /> : (type === 'lecturer' ? <LecturerCard /> : <ThesisCard />)}
+    <div className="bg-white rounded-lg shadow-md border border-gray-200 transition-all duration-200 overflow-hidden flex flex-col h-full">
+      {type === 'lecturer' ? <LecturerCard /> : <ThesisCard />}
     </div>
   );
 };

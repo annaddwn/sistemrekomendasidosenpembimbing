@@ -116,8 +116,6 @@ const HomePage = () => {
       ) : (
         <>
           <SearchForm onSearch={handleSearch} disabled={!dataLoaded} />
-
-          {/* Tampilkan error jika NIM tidak ditemukan */}
           {error && (
             <div className="mt-6 p-6 bg-red-50 border-l-4 border-red-500 rounded-lg">
               <h3 className="font-bold text-red-800">Error</h3>
@@ -134,8 +132,6 @@ const HomePage = () => {
               )}
             </div>
           )}
-
-          {/* Tampilkan hasil pencarian jika tersedia */}
           {results && !error && <ResultTabs results={results} />}
         </>
       )}

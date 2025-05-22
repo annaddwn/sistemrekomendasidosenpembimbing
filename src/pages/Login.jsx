@@ -12,7 +12,6 @@ const Login = () => {
                     Selamat Datang di <span className="text-yellow-400">Sistem Rekomendasi Dosen Pembimbing dan Tugas Akhir</span>
                 </h1>
                 <div className="flex flex-row items-center">
-                    {/* Logo */}
                     <div className="flex-1">
                         <img
                             src={assets.ipb_icon}
@@ -20,12 +19,11 @@ const Login = () => {
                             className="w-full h-auto rounded-lg"
                         />
                     </div>
-                    {/* Menu Pilihan */}
                     <div className="flex-1 ml-4">
                         <div className="flex flex-col space-y-4">
                             <strong>Silahkan Login Sebagai:</strong>
                             <button
-                                onClick={() => navigate('/HomePage')}
+                                onClick={() => navigate('/Mahasiswa')}
                                 className="bg-blue-100 text-indigo-700 py-2 px-4 rounded-lg font-semibold hover:bg-yellow-400 transition duration-300"
                             >
                                 Mahasiswa
