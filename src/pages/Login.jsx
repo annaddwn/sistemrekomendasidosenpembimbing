@@ -7,8 +7,8 @@ const Login = () => {
 
     return (
         <div className="flex justify-center items-center min-h-screen bg-blue-100">
-            <div className="flex flex-col w-full p-8 bg-indigo-700 text-white max-w-lg rounded-lg">
-                <h1 className="text-2xl font-bold mb-10 text-center">
+            <div className="flex flex-col w-full p-8 bg-indigo-700 text-white max-w-xl rounded-lg">
+                <h1 className="text-3xl font-bold mb-10 text-center">
                     Selamat Datang di <span className="text-yellow-400">Sistem Rekomendasi Dosen Pembimbing dan Tugas Akhir</span>
                 </h1>
                 <div className="flex flex-row items-center">
