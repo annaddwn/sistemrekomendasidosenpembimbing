@@ -28,16 +28,15 @@ const categoryDescriptions = {
     title: "Skyband Mutual View (SMV)",
     description: [
       "Syarat Hasil SMV:",
-      "1. Dosen tertarik pada mahasiswa tersebut",
+      "1. Dosen tertarik pada mahasiswa dan Mahasiswa juga tertarik pada dosen (Hubungan timbal balik)",
       "2. Mahasiswa harus termasuk dalam skyband/terbaik berdasarkan prestasi akademik",
-      "3. Mahasiswa juga tertarik pada dosen (Hubungan timbal balik)",
     ].join("\n"),
   },
   "Mahasiswa Rsky": {
     title: "Kueri Reciprocal Skyband (Rsky)",
     description: [
       "Syarat Hasil Rsky:",
-      "1. Dosen tertarik pada mahasiswa tersebut",
+      "1. Mahasiswa tertarik pada dosen",
       "2. Mahasiswa harus termasuk dalam skyband/terbaik berdasarkan prestasi akademik",
     ].join("\n"),
   },
