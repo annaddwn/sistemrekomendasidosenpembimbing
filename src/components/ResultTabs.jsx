@@ -8,7 +8,7 @@ const categoryDescriptions = {
     description: [
       "Syarat Hasil SIS:",
       "1. Mahasiswa harus termasuk dalam skyband/terbaik berdasarkan prestasi akademik",
-      "2. Dosen juga harus termasuk dalam skyband/terbaik berdasarkan rata-rata lama bimgbingan, index scholar, dan banyaknya mahasiswa bimbingan",
+      "2. Dosen juga harus termasuk dalam skyband/terbaik berdasarkan rata-rata lama bimbingan, index scholar, dan banyaknya mahasiswa bimbingan",
       "",
       "Penyebab Tidak Ada Hasil:",
       "1. Tidak ada dosen terbaik yang menarik bagi mahasiswa",
@@ -19,17 +19,16 @@ const categoryDescriptions = {
     title: "Skyband Mutual View (SMV)",
     description: [
       "Syarat Hasil SMV:",
-      "1. Mahasiswa tertarik pada dosen tersebut",
-      "2. Dosen harus termasuk dalam skyband/terbaik berdasarkan rata-rata lama bimgbingan, index scholar, dan banyaknya mahasiswa bimbingan",
-      "3. Dosen juga tertarik pada mahasiswa (Hubungan timbal balik)", 
+      "1. Mahasiswa tertarik pada dosen dan Dosen juga tertarik pada mahasiswa (Hubungan timbal balik)",
+      "2. Dosen harus termasuk dalam skyband/terbaik berdasarkan rata-rata lama bimbingan, index scholar, dan banyaknya mahasiswa bimbingan",
     ].join('\n')
   },
   Rsky: {
     title: "Kueri Reciprocal Skyband (Rsky)",
     description: [
       "Syarat Hasil Rsky:",
-      "1. Mahasiswa tertarik pada dosen tersebut",
-      "2. Dosen harus termasuk dalam skyband/terbaik berdasarkan rata-rata lama bimgbingan, index scholar, dan banyaknya mahasiswa bimbingan",
+      "1. Dosen tertarik pada mahasiswa",
+      "2. Dosen harus termasuk dalam skyband/terbaik berdasarkan rata-rata lama bimbingan, index scholar, dan banyaknya mahasiswa bimbingan",
     ].join('\n')
   }
 };
