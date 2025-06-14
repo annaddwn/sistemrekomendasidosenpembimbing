@@ -12,31 +12,30 @@ const HomePage = () => {
   const [dataLoaded, setDataLoaded] = useState(false);
 
   useEffect(() => {
-    const loadExcelData = async () => {
-      try {
-        const dosenResponse = await fetch('hasil_mhs.xlsx');
-        const dosenArrayBuffer = await dosenResponse.arrayBuffer();
-        const dosenWorkbook = XLSX.read(new Uint8Array(dosenArrayBuffer), { type: 'array' });
-        const dosenJson = XLSX.utils.sheet_to_json(dosenWorkbook.Sheets[dosenWorkbook.SheetNames[0]]);
-        
-        const thesisResponse = await fetch('hasil_rekomendasi.xlsx');
-        const thesisArrayBuffer = await thesisResponse.arrayBuffer();
-        const thesisWorkbook = XLSX.read(new Uint8Array(thesisArrayBuffer), { type: 'array' });
-        const thesisJson = XLSX.utils.sheet_to_json(thesisWorkbook.Sheets[thesisWorkbook.SheetNames[0]]);
-
-        setDosenData(dosenJson);
-        setThesisData(thesisJson);
-        setDataLoaded(true);
-        
-        console.log('Dosen data loaded:', dosenJson);
-        console.log('Thesis data loaded:', thesisJson);
-      } catch (err) {
-        console.error('Error loading Excel files:', err);
-        setError(`Gagal memuat data: ${err.message}`);
-      } 
+    const fetchExcel = (url) => {
+      return fetch(url)
+        .then(res => res.arrayBuffer())
+        .then(ab => {
+          const workbook = XLSX.read(new Uint8Array(ab), { type: 'array' });
+          return XLSX.utils.sheet_to_json(workbook.Sheets[workbook.SheetNames[0]]);
+        });
     };
 
-    loadExcelData();
+    Promise.all([
+      fetchExcel('hasil_mhs.xlsx'),
+      fetchExcel('hasil_rekomendasi.xlsx')
+    ])
+    .then(([dosenJson, thesisJson]) => {
+      setDosenData(dosenJson);
+      setThesisData(thesisJson);
+      setDataLoaded(true);
+      console.log('Dosen data loaded:', dosenJson);
+      console.log('Thesis data loaded:', thesisJson);
+    })
+    .catch(err => {
+      console.error('Error loading Excel files:', err);
+      setError(`Gagal memuat data: ${err.message}`);
+    });
   }, []);
 
   const formatDosenData = (names, links) => {
